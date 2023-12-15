@@ -7,7 +7,7 @@ function Education() {
     const [Graduated , setGraduated] = useState("")
 
     return (
-        <div className='educationInfo'>
+        <div className='educationInfo'><span className="infoTitles">Education</span>
             <input
                 type = "text"
                 placeholder = "university"

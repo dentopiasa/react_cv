@@ -9,7 +9,7 @@ function Jobs () {
     const [Description , setDescription] = useState("")
 
     return (
-        <div className="jobsInfo">
+        <div className="jobsInfo"><span className="infoTitles">Work Experience</span>
             <input
             type = "text"
             placeholder = "position"

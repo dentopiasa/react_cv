@@ -38,10 +38,24 @@
     flex-direction: column;
     align-items: center;
     gap: 1px;
-    padding: 20px;
+    padding: 1px 30px;
 }
+
+.personalInfo {
+    padding-top: 30px;
+}
+
+.educationInfo {
+    padding-bottom: 30px;
+}
+
 input {
     width: 300px;
     height: 50px;
     font-size: 20px;
+}
+
+.infoTitles {
+    color: black;
+    font-weight: bolder;
 }
