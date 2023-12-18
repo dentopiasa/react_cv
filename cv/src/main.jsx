@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import Info from "./components/GeneralInfo.jsx"
 import Template from './components/Template'
 
 
