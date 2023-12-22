@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import PersonalCVcomponent
+import App from "./components/App,jsx" 
+import dropdownImg
 
 export default function PersonalDetails({
     handleSubmit, 
@@ -41,7 +44,7 @@ return (
             <img src={dropdownImg} onClick={() => setShowed(!showed)}></img>
         </div>
 
-    <form className="hide-show-content-personal-details" style={showed ? {display: 'none'} : {display: flex}}>
+    <form className="hide-show-content-personal-details" style={showed ? {display: 'none'} : {display: 'flex'}}>
         <label>Full Name:</label>
         <input 
         type="text"
@@ -81,7 +84,41 @@ return (
             </button>
         </div>
     </form>
-        
+
+    <div>
+        {PersonalDetailsForm.map(item =>{
+            return (
+                <div key={item.keyForm} className="personal-details-form-content">
+                <h3>{item.inputName}</h3>
+                <h3>{item.inputEmail}</h3>
+                <h3>{item.inputAddress}</h3>
+                <h3>{item.inputPhone}</h3>
+
+                <div className="personal-details-btns-container-below-form">
+                    <button
+                        onClick={e =>{
+                            setShowed(!showed)
+                            handleDelete(item)
+                            handleEdit(e)
+                        }}
+                        name= {item.keyForm}
+                    >
+                        EDIT
+                    </button>
+                    <button 
+                        onclick={e => {
+                            handleDelete(e)
+                        }}
+                        name= {item.keyForm}
+                    >
+                        DELETE
+                    </button>
+                    </div>
+                    </div>
+            )
+        })}
+    </div>
     </div>
     </>
-)
+    )
+    
