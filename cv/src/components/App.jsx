@@ -1,3 +1,6 @@
+import "./App.css";
+import PersonalDetails from "./PersonalDetails";
+
 export default function App() {
     const [personalDetailsForm , setPersonalDetailsForm] =  useState([]);
     const [educationForm , setEducationForm] = useState([]);
@@ -82,5 +85,4 @@ export default function App() {
         </div>
         </>
     )
-
 }

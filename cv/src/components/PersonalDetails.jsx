@@ -6,7 +6,7 @@ import dropdownImg
 
 export default function PersonalDetails({
     handleSubmit, 
-    PersonalDetailsForm, 
+    personalDetailsForm, 
     setPersonalDetailsForm
 }) {
     const [inputName , setInputName] = useState("");
@@ -86,7 +86,7 @@ return (
     </form>
 
     <div>
-        {PersonalDetailsForm.map(item =>{
+        {personalDetailsForm.map(item =>{
             return (
                 <div key={item.keyForm} className="personal-details-form-content">
                 <h3>{item.inputName}</h3>
@@ -111,7 +111,7 @@ return (
                         }}
                         name= {item.keyForm}
                     >
-                        DELETE
+                        DELETE BRO
                     </button>
                     </div>
                     </div>
