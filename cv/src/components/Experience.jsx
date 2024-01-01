@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import PersonalCVcomponent
-import App from "./components/App,jsx" 
-import dropdownImg
+
 
 export default function Experience({
     handleSubmit, 
@@ -32,56 +30,64 @@ function handleDelete(e) {
 }
 
 function handleEdit(item) {
-    setInputName(item.inputName);
-    setInputEmail(item.inputEmail);
-    setInputAddress(item.inputAddress);
-    setInputPhone(item.inputPhone);
-    setShowed(showed);
+    setInputTitle(item.inputTitle);
+    setInputCompany(item.inputCompany);
+    setInputDescription(item.inputDescription);
+    setInputStartDate(item.inputStartDate);
+    setInputEndDate(item.inputEndDate)
+    setShowedExperience(showedExperience);
 }
 
 return (
     <>
-    <div className="personal-details-container">
-        <h3>Personal Details:</h3>
-        <div className="dropdown-icon-personal-details">
-            <img src={dropdownImg} onClick={() => setShowed(!showed)}></img>
+    <div className="experience-details-container">
+        <h3>Experience:</h3>
+        <div className="dropdown-icon-experience-details">
+            <img src={dropdownImg} onClick={() => setShowedExperience(!showedExperience)}></img>
         </div>
 
-    <form className="hide-show-content-personal-details" style={showed ? {display: 'none'} : {display: 'flex'}}>
-        <label>Full Name:</label>
+    <form className="hide-show-content-experience-details" style={showedExperience ? {display: 'none'} : {display: 'flex'}}>
+        <label>Title:</label>
         <input 
         type="text"
-        value={inputName}
-        onChange={e => setInputName(e.target.value)}/>
+        value={inputTitle}
+        onChange={e => setInputTitle(e.target.value)}/>
 
         <label>Email:</label>
         <input 
         type="text"
-        value={inputEmail}
-        onChange={e => setInputEmail(e.target.value)}/>
+        value={inputCompany}
+        onChange={e => setInputCompany(e.target.value)}/>
 
-        <label>Address:</label>
+        <label>Description:</label>
         <input 
         type="text"
-        value={inputAddress}
-        onChange={e => setInputAddress(e.target.value)}/>
+        value={inputDescription}
+        onChange={e => setInputDescription(e.target.value)}/>
 
-        <label>Phone:</label>
+        <label>Start Date:</label>
         <input 
         type="text"
-        value={inputPhone}
-        onChange={e => setInputPhone(e.target.value)}/>
+        value={inputStartDate}
+        onChange={e => setInputStartDate(e.target.value)}/>
 
-        <div className="personal-details-btn-container">
+        <label>End Date:</label>
+        <input 
+        type="text"
+        value={inputEndDate}
+        onChange={e => setInputEndDate(e.target.value)}/>
+
+        <div className="experience-details-btn-container">
             <button onClick={e => {
                 handleSubmit (
                     e,
-                    inputName,
-                    inputEmail, 
-                    inputAddress, 
-                    inputPhone,
+                    inputTitle,
+                    inputCompany, 
+                    inputDescription, 
+                    inputStartDate,
+                    inputEndDate,
                 );
-                clearPersonalDetailsInputs();
+                clearExperienceInputs();
             }}
             type="submit">Submit              
             </button>
@@ -89,18 +95,19 @@ return (
     </form>
 
     <div>
-        {personalDetailsForm.map(item =>{
+        {experienceForm.map(item =>{
             return (
-                <div key={item.keyForm} className="personal-details-form-content">
-                <h3>{item.inputName}</h3>
-                <h3>{item.inputEmail}</h3>
-                <h3>{item.inputAddress}</h3>
-                <h3>{item.inputPhone}</h3>
+                <div key={item.keyForm} className="experience-details-form-content">
+                <h3>{item.inputTitle}</h3>
+                <h3>{item.inputCompany}</h3>
+                <h3>{item.inputDescription}</h3>
+                <h3>{item.inputStartDate}</h3>
+                <h3>{item.inputEndDate}</h3>
 
-                <div className="personal-details-btns-container-below-form">
+                <div className="experience-details-btns-container-below-form">
                     <button
                         onClick={e =>{
-                            setShowed(!showed)
+                            setShowedExperience(!showedExperience)
                             handleDelete(item)
                             handleEdit(e)
                         }}
