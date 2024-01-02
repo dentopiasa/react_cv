@@ -1,13 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import PersonalCVcomponent
-import App from "./components/App,jsx" 
-import dropdownImg
+import PersonalDetailsCVComponent from "./PersonalDetailsCVComponent";
+import App from "./App";
 
 export default function PersonalDetails({
     handleSubmit, 
     personalDetailsForm, 
-    setPersonalDetailsForm
+    setPersonalDetailsForm,
 }) {
     const [inputName , setInputName] = useState("");
     const [inputEmail , setInputEmails] = useState("");
@@ -25,7 +24,7 @@ function clearPersonalDetailsInputs() {
 
 function handleDelete(e) {
     let clickedOnEntry = e.target.name;
-    setPersonalDetailsForm(PersonalDetails.filter(item => item.keyForm != clickedOnEntry))
+    setPersonalDetailsForm(PersonalDetails.filter(item => item.keyForm !== clickedOnEntry))
 }
 
 function handleEdit(item) {

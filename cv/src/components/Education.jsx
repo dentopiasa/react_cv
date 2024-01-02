@@ -1,4 +1,7 @@
 import { useState } from "react";
+import React from "react";
+import EducationCvComponent from "./EducationCVComponent";
+import App from "./App";
 
 export default function Education({
     handleSubmit, 
@@ -84,7 +87,7 @@ return (
                     degreeInput, 
                     startDateInput, 
                     endDateInput,
-                    locationInput.
+                    locationInput,
                 );
                 clearEducationInputs();
             }}

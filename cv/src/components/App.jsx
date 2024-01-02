@@ -1,12 +1,19 @@
-import "./App.css";
-import PersonalDetails from "./PersonalDetails";
+
+import PersonalDetails from "./PersonalDetails"
+import Education from "./Education"
+import Experience from "./Experience"
+import PersonalDetailsCVComponent from "./PersonalDetailsCVComponent"
+import EducationCVComponent from "./EducationCVComponent"
+import ExperienceCVComponent from "./ExperienceCVComponent"
+import { useState } from "react"
+import { v4 as uuid } from "uuid"
 
 export default function App() {
     const [personalDetailsForm , setPersonalDetailsForm] =  useState([]);
     const [educationForm , setEducationForm] = useState([]);
     const [experienceForm , setExperienceForm] = useState([]);
 
-    function handleSubmitPersonal(e, inputName, inputEmail, inputEmail, inputPhone) {
+    function handleSubmitPersonal(e, inputName, inputEmail, inputAddress, inputPhone) {
         e.preventDefault();
         const updatedInfo = {
             inputName : inputName, 
@@ -63,11 +70,11 @@ export default function App() {
                 educationForm={educationForm}
                 setEducationForm={setEducationForm}
             ></Education>
-            <ProfessionalExperience
+            <Experience
                 handleSubmit={handleSubmitExperience}
                 experienceForm={experienceForm}
                 setExperienceForm={experienceForm}
-            ></ProfessionalExperience>
+            ></Experience>
         </div>
 
         <div id="cv-page">
