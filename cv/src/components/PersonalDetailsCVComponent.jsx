@@ -4,7 +4,7 @@ import PersonalDetails from "./PersonalDetails";
 
 export default function PersonalDetailsCVComponent({ personalDetailsForm }) {
     return (
-        <div>
+        <>
             <div className="personal-details-cv-component-container">
                 {personalDetailsForm.map(item => {
                     return 
@@ -18,6 +18,6 @@ export default function PersonalDetailsCVComponent({ personalDetailsForm }) {
                     </>
                 })}
             </div>
-        </div>
+        </>
     )
 }

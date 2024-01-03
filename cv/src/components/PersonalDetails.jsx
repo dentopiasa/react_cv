@@ -9,15 +9,15 @@ export default function PersonalDetails({
     setPersonalDetailsForm,
 }) {
     const [inputName , setInputName] = useState("");
-    const [inputEmail , setInputEmails] = useState("");
+    const [inputEmail , setInputEmail] = useState("");
     const [inputAddress , setInputAddress] = useState("");
     const [inputPhone , setInputPhone] = useState("");
     const [showed , setShowed] = useState(false);
-}
+
 
 function clearPersonalDetailsInputs() {
     setInputName("");
-    setInputEmails("");
+    setInputEmail("");
     setInputAddress("")
     setInputPhone("")
 }
@@ -119,5 +119,5 @@ return (
     </div>
     </div>
     </>
-    )
+    )}
     

@@ -14,7 +14,7 @@ export default function Education({
     const [endDateInput , setEndDateInput] = useState("");
     const [locationInput , setLocationInput] = useState("");
     const [showedEducation , setShowedEducation] = useState(false);
-}
+
 
 function clearEducationInputs() {
     setSchoolNameInput("");
@@ -132,6 +132,6 @@ return (
     </div>
     </div>
     </>
-    )
+    )}
 
 

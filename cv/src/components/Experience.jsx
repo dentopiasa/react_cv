@@ -10,12 +10,12 @@ export default function Experience({
     setExperienceForm
 }) {
     const [inputTitle , setInputTitle] = useState("");
-    const [inputCompany , setInputEmails] = useState("");
-    const [inputDescription , setInputAddress] = useState("");
-    const [inputStartDate , setInputPhone] = useState("");
+    const [inputCompany , setInputCompany] = useState("");
+    const [inputDescription , setInputDescription] = useState("");
+    const [inputStartDate , setInputStartDate] = useState("");
     const [inputEndDate , setInputEndDate] = useState("");
     const [showedExperience , setShowedExperience] = useState(false);
-}
+
 
 function clearExperienceInputs() {
     setInputTitle("");
@@ -132,5 +132,5 @@ return (
     </div>
     </div>
     </>
-    )
+    )}
     

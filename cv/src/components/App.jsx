@@ -73,7 +73,7 @@ export default function App() {
             <Experience
                 handleSubmit={handleSubmitExperience}
                 experienceForm={experienceForm}
-                setExperienceForm={experienceForm}
+                setExperienceForm={setExperienceForm}
             ></Experience>
         </div>
 
