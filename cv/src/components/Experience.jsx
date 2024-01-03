@@ -1,136 +1,71 @@
-import React from "react";
 import { useState } from "react";
-import App from "./App";
-import ExperienceCVComponent from "./ExperienceCVComponent";
 
+function Experience({            
+  companyStateFn,
+  workTitleStateFn,
+  responsibilitiesStateFn,
+  startDateStateFn,
+  endDateStateFn,
+  status,
+  submitSetter}){
+    const[company, setCompany] = useState('');
+    const[workTitle, setWorkTitle] = useState('');
+    const[responsibilities, setResponsibilities] = useState('');
+    const[startDate, setStartExpDate] = useState('');
+    const[endDate, setEndExpDate] = useState('');
 
-export default function Experience({
-    handleSubmit, 
-    experienceForm, 
-    setExperienceForm
-}) {
-    const [inputTitle , setInputTitle] = useState("");
-    const [inputCompany , setInputCompany] = useState("");
-    const [inputDescription , setInputDescription] = useState("");
-    const [inputStartDate , setInputStartDate] = useState("");
-    const [inputEndDate , setInputEndDate] = useState("");
-    const [showedExperience , setShowedExperience] = useState(false);
+  const handleCompanyChange = (e) => {
+    setCompany(e.target.value);
+  }
+  const handleWorkTitleChange = (e) => {
+    setWorkTitle(e.target.value);
+  }
+  const handleResponsibilitiesChange = (e) => {
+    setResponsibilities(e.target.value);
+  }
+  const handleStartDateChange = (e) => {
+    setStartExpDate(e.target.value);
+  }
+  const handleEndDateChange = (e) => {
+    setEndExpDate(e.target.value);
+  }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    companyStateFn(company);
+    workTitleStateFn(workTitle);
+    responsibilitiesStateFn(responsibilities);
+    startDateStateFn(startDate);
+    if(endDate == ''){
+      endDateStateFn('present');
+    }
+    else{
+    endDateStateFn(endDate);
+    }
+    submitSetter();
 
-function clearExperienceInputs() {
-    setInputTitle("");
-    setInputCompany("");
-    setInputDescription("");
-    setInputStartDate("");
-    setInputEndDate("");
-    setShowedExperience("");
-}
+  }
 
-function handleDelete(e) {
-    let clickedOnEntry = e.target.name;
-    setExperienceForm(Experience.filter(item => item.keyForm != clickedOnEntry))
-}
-
-function handleEdit(item) {
-    setInputTitle(item.inputTitle);
-    setInputCompany(item.inputCompany);
-    setInputDescription(item.inputDescription);
-    setInputStartDate(item.inputStartDate);
-    setInputEndDate(item.inputEndDate)
-    setShowedExperience(showedExperience);
-}
-
-return (
-    <>
-    <div className="experience-details-container">
-        <h3>Experience:</h3>
-        <div className="dropdown-icon-experience-details">
-            <img src={dropdownImg} onClick={() => setShowedExperience(!showedExperience)}></img>
-        </div>
-
-    <form className="hide-show-content-experience-details" style={showedExperience ? {display: 'none'} : {display: 'flex'}}>
-        <label>Title:</label>
-        <input 
-        type="text"
-        value={inputTitle}
-        onChange={e => setInputTitle(e.target.value)}/>
-
-        <label>Email:</label>
-        <input 
-        type="text"
-        value={inputCompany}
-        onChange={e => setInputCompany(e.target.value)}/>
-
-        <label>Description:</label>
-        <input 
-        type="text"
-        value={inputDescription}
-        onChange={e => setInputDescription(e.target.value)}/>
-
-        <label>Start Date:</label>
-        <input 
-        type="text"
-        value={inputStartDate}
-        onChange={e => setInputStartDate(e.target.value)}/>
-
-        <label>End Date:</label>
-        <input 
-        type="text"
-        value={inputEndDate}
-        onChange={e => setInputEndDate(e.target.value)}/>
-
-        <div className="experience-details-btn-container">
-            <button onClick={e => {
-                handleSubmit (
-                    e,
-                    inputTitle,
-                    inputCompany, 
-                    inputDescription, 
-                    inputStartDate,
-                    inputEndDate,
-                );
-                clearExperienceInputs();
-            }}
-            type="submit">Submit              
-            </button>
-        </div>
-    </form>
-
+  return(
+  <form onSubmit={handleSubmit}>
+    <legend>Experience</legend>
+    {(status == 'edit' || status == 'pending') && <>
+    <label>Company Name</label>
+    <input key='company' type="text" value={company} required onChange={handleCompanyChange} />
+    <label>Position Title</label>
+    <input key='work-title' type="text" value={workTitle} required onChange={handleWorkTitleChange} />
+    <label>Resposibilities</label>
+    <textarea key='responsibilities' type="text" value={responsibilities} required onChange={handleResponsibilitiesChange} />
+    <label>Start Date</label>
+    <input key='start-date' type="date" value={startDate} required onChange={handleStartDateChange}/>
+    <label>End Date</label>
+    <input key='end-date' type="date" value={endDate}  onChange={handleEndDateChange}/>
     <div>
-        {experienceForm.map(item =>{
-            return (
-                <div key={item.keyForm} className="experience-details-form-content">
-                <h3>{item.inputTitle}</h3>
-                <h3>{item.inputCompany}</h3>
-                <h3>{item.inputDescription}</h3>
-                <h3>{item.inputStartDate}</h3>
-                <h3>{item.inputEndDate}</h3>
+      <button>Submit</button>
+    </div> </>}
+    {(status == 'submitted') && <div><button >Edit
+      </button> </div>}
+  </form>)
+}
 
-                <div className="experience-details-btns-container-below-form">
-                    <button
-                        onClick={e =>{
-                            setShowedExperience(!showedExperience)
-                            handleDelete(item)
-                            handleEdit(e)
-                        }}
-                        name= {item.keyForm}
-                    >
-                        EDIT
-                    </button>
-                    <button 
-                        onclick={e => {
-                            handleDelete(e)
-                        }}
-                        name= {item.keyForm}
-                    >
-                        DELETE BRO
-                    </button>
-                    </div>
-                    </div>
-            )
-        })}
-    </div>
-    </div>
-    </>
-    )}
-    
+export default Experience;
