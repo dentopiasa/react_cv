@@ -2,6 +2,7 @@
     height: inherit;
     width: calc(50vw - 4em);
     padding:  2em;
+    color: white;
 }
 
 .name{

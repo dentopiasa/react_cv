@@ -5,7 +5,7 @@ import Contact from './Contact';
 import Education from './Education';
 import Experience from './Experience';
 
-function App() {
+function App() {1
   const[name, setName] = useState('Name');
   const[email, setEmail] = useState('Email');
   const[phone, setPhone] = useState('Phone');
