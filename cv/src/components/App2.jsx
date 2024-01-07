@@ -15,10 +15,24 @@ function App2() {
     const [workStart , setWorkStart] = useState("workStart");
     const [workEnd , setWorkEnd] = useState("workEnd");
 
+    //contact 
+    const setNameChange = function(value) {
+        setName(value);
+    }
+    const setEmailChange = function(value) {
+        setEmail(value); 
+    }
+    const setPhoneChange = function(value) {
+        setPhone(value);
+    }
+
+
     return (
         <div>
             <h1>CV APPLICATION</h1>
-            <p>{name}</p>
+            <Contact2
+                nameStateFn={setNameChange} 
+            />
         </div>
     )
 }
